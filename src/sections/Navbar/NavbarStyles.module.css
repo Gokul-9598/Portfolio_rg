@@ -1,0 +1,113 @@
+/* Navbar container */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  
+}
+
+/* Container for the menu and toggle button */
+.navbarContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+}
+
+/* Navbar menu styles */
+.navbarMenu {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+/* Navbar menu when open (for dropdown) */
+.navbarMenu.open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  /* background-color: #ffffff; */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(0);
+}
+
+/* Navbar menu items */
+.navbarItem a,
+.navbarItem .active {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbarItem a:hover {
+  color: navy;
+}
+
+/* Hamburger menu toggle button */
+.menuToggle {
+  font-size: 1.5rem;
+  border: none;
+  background: none;
+  background-color: #333;
+  cursor: pointer;
+  display: none;
+}
+
+button {
+  background-color: var(--btn-color);
+  color: var(--btn-text-color);
+  border: none;
+  border-radius: 20px;
+  width: 126px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
+  justify-content: space-around;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .menuToggle {
+    display: block;
+  }
+
+  .navbarMenu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: inherit;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-100%);
+  }
+
+  .navbarMenu.open {
+    display: flex;
+    transform: translateY(0);
+  }
+}
